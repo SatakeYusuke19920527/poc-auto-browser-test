@@ -149,7 +149,7 @@ async def root(query: str):
 async def do_agent_func(query: str):
     browser = Browser(
         config=BrowserConfig(
-            headless=True,
+            headless=False,
         )
     )
 
@@ -167,8 +167,7 @@ async def do_agent_func(query: str):
     )
 
     try:
-        result = await agent.run(max_steps=5)
-        # result = await agent.run()
+        result = await agent.run()
         return result
     except Exception as e:
         print(f"Error: {e}")
